@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/estilo-temas.css">
+    <title>Videos Educativos</title>
+</head>
+
+<body>
+    <div class="main-video">
+        <h1>Videos Educativos</h1>
+        <div class="contenedor-videos">
+            <div class="caja-video">
+                <iframe width="100%" height="100%" src="" name="playVideo" title="Video principal" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                </iframe>
+            </div>
+            <div class="galeria-videos">
+                <a href="https://www.youtube.com/embed/Al75dGexkGI?autoplay=1" id="tren-vocales" target="playVideo">
+                    <img src="image/img-videos/trendelasvocales.jpg" alt="Tren de las vocales">
+                    <h3>El tren de los alfabetos</h3>
+                    <p>Aprende las vocales con este divertido viaje en tren.</p>
+                </a>
+                <a href="https://www.youtube.com/embed/86r5T06ChPE?autoplay=1" id="transportes" target="playVideo">
+                    <img src="image/img-videos/Transportes.jpg" alt="Medios de transporte">
+                    <h3>Los medios de transporte</h3>
+                    <p>Conoce los diferentes tipos de transporte en este video.</p>
+                </a>
+                <a href="https://www.youtube.com/embed/IRtrAoe3VJU?autoplay=1" id="sistema-solar" target="playVideo">
+                    <img src="image/img-videos/sistema-solar.jpg" alt="Sistema solar">
+                    <h3>El sistema solar</h3>
+                    <p>Explora los planetas y sus características en nuestro sistema solar.</p>
+                </a>
+                <a href="https://www.youtube.com/embed/sAkmLxLqgy0?autoplay=1" id="buenos-modales" target="playVideo">
+                    <img src="image/img-videos/buenosModales.jpg" alt="Buenos modales">
+                    <h3>Los buenos modales</h3>
+                    <p>Aprende cómo comportarte de manera educada con este video.</p>
+                </a>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const links = document.querySelectorAll(".galeria-videos a");
+            const iframeContainer = document.querySelector(".caja-video");
+
+            links.forEach(link => {
+                link.addEventListener("click", function() {
+                    // Espera un momento para que el video cargue y luego se desplaza
+                    setTimeout(() => {
+                        iframeContainer.scrollIntoView({
+                            behavior: "smooth"
+                        });
+                    }, 100);
+                });
+            });
+        });
+    </script>
+
+</html>

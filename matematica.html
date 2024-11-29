@@ -1,0 +1,240 @@
+
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprendamos Números</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', sans-serif;
+            background-color: #fffde7;
+            margin: 5%;
+            padding: 0;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 60px;
+            color: #ff7043;
+            margin-top: 20px;
+            text-shadow: 2px 2px 5px #ffa726;
+        }
+
+        p {
+            font-size: 24px;
+            color: #4caf50;
+            margin-bottom: 20px;
+        }
+
+        .message {
+            font-size: 40px;
+            color: #4caf50;
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #e8f5e9;
+            border: 2px solid #81c784;
+            border-radius: 10px;
+            padding: 10px 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            visibility: hidden;
+            opacity: 0;
+            z-index: 1000;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .message.show {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .number-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 60px;
+        }
+
+        .number-card {
+            background-color: #ffccbc;
+            border: 3px solid #ff8a65;
+            border-radius: 20px;
+            padding: 20px;
+            width: 120px;
+            text-align: center;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: transform 0.3s, background-color 0.3s;
+            font-size: 0.9em;
+        }
+
+        .number-card:hover {
+            transform: scale(1.1);
+            background-color: #ffe0b2;
+        }
+
+        .number {
+            font-size: 60px;
+            color: #d84315;
+            margin-bottom: 10px;
+        }
+
+        .drop-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+            padding: 15px;
+            background-color: #e3f2fd;
+            border-radius: 20px;
+            border: 2px dashed #64b5f6;
+        }
+
+        .drop-target {
+            background-color: #c8e6c9;
+            border: 3px dashed #66bb6a;
+            border-radius: 15px;
+            padding: 20px;
+            width: 120px;
+            text-align: center;
+            font-size: 24px;
+            color: #2e7d32;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .drop-target:hover {
+            transform: scale(1.05);
+            background-color: #a5d6a7;
+        }
+
+        .drop-target.correct {
+            background-color: #81c784;
+            border-color: #388e3c;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes shake {
+            0%, 100% {
+                transform: translateX(0);
+            }
+            25% {
+                transform: translateX(-10px);
+            }
+            75% {
+                transform: translateX(10px);
+            }
+        }
+
+        .shake {
+            animation: shake 0.6s;
+        }
+
+        .error {
+            animation: shake 0.6s;
+            background-color: #f8d7da !important;
+            border-color: #f44336 !important;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🎈 ¡Juguemos con Números! 🧮</h1>
+    <p>Arrastra los números al nombre correcto. ¡Tú puedes hacerlo! </p>
+    <div id="message" class="message">¡Muy bien🎉✨</div>
+
+    <div class="number-container">
+        <!-- Los números se generarán dinámicamente -->
+    </div>
+
+    <div class="drop-container">
+        <!-- Los contenedores para arrastrar se generarán dinámicamente -->
+    </div>
+
+    <script>
+        const numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
+        const numberNames = [
+            "Uno", "Dos", "Tres", "Cuatro", "Cinco", "Seis", "Siete", "Ocho", "Nueve", "Diez"
+        ];
+
+        const container = document.querySelector('.number-container');
+        const dropContainer = document.querySelector('.drop-container');
+        const message = document.getElementById('message');
+
+        numbers.forEach((num, index) => {
+            // Crear tarjeta de número
+            const card = document.createElement('div');
+            card.classList.add('number-card');
+            card.setAttribute('draggable', 'true');
+
+            const number = document.createElement('div');
+            number.textContent = num;
+            number.classList.add('number');
+
+            card.appendChild(number);
+
+            // Evento de clic con animación de sacudida
+            card.addEventListener('click', () => {
+                card.classList.add('shake');
+                setTimeout(() => card.classList.remove('shake'), 600);
+            });
+
+            // Evento de arrastrar
+            card.addEventListener('dragstart', (e) => {
+                e.dataTransfer.setData('text', num);
+            });
+
+            container.appendChild(card);
+
+            // Crear contenedor de soltar
+            const dropTarget = document.createElement('div');
+            dropTarget.classList.add('drop-target');
+            dropTarget.textContent = numberNames[index];
+
+            // Evento de clic con animación de sacudida
+            dropTarget.addEventListener('click', () => {
+                dropTarget.classList.add('shake');
+                setTimeout(() => dropTarget.classList.remove('shake'), 600);
+            });
+
+            // Evento de soltar
+            dropTarget.addEventListener('dragover', (e) => {
+                e.preventDefault();
+            });
+
+            dropTarget.addEventListener('drop', (e) => {
+                e.preventDefault();
+                const draggedNumber = e.dataTransfer.getData('text');
+                if (draggedNumber === num) {
+                    dropTarget.classList.add('correct');
+                    showMessage();
+                } else {
+                    dropTarget.classList.add('error');
+                    setTimeout(() => dropTarget.classList.remove('error'), 600);
+                }
+            });
+
+            dropContainer.appendChild(dropTarget);
+        });
+
+        function showMessage() {
+            message.classList.add('show');
+            setTimeout(() => {
+                message.classList.remove('show');
+            }, 2000);
+        }
+    </script>
+</body>
+
+</html>

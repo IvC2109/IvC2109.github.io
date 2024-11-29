@@ -1,0 +1,407 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #1e1e2f;
+    font-family: 'Fredoka One', serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* Contenedor */
+
+.contenedor {
+    margin: 0 auto;
+}
+
+
+/* Cabecera */
+
+.cabecera-barra {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font: 13px;
+    background-color: #0e6fdf;
+    background-color: rgb(0, 37, 68);
+    padding: 20px 40px;
+    height: 150px;
+    color: #ffffff;
+    box-sizing: border-box;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header .logo img {
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+header nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.cabecera-barra nav a {
+    padding: 0 15px;
+    margin-right: 15px;
+    opacity: 0.9;
+    line-height: 2;
+    background-color: #5bd3d0;
+    border-radius: 2px;
+    padding: 8px 12px;
+}
+
+
+/* Cabecera Logotipo */
+
+.cabecera-barra h1 {
+    font-size: 35px;
+    line-height: 100px;
+    margin: 0;
+}
+
+.cabecera-barra h1 span {
+    color: #01ffea;
+}
+
+.cabecera-barra .logo {
+    width: 150px;
+    height: 100px;
+    padding: 0;
+    float: left;
+}
+
+
+/* Cabecera Barra*/
+
+.cabecera-barra a {
+    color: #ffffff;
+}
+
+.cabecera-barra nav {
+    font: 14px Arial, Helvetica, sans-serif;
+    line-height: 100px;
+    float: right;
+    margin: 0 0 0 60px;
+    padding: 0;
+}
+
+.cabecera-barra nav a:hover {
+    border-radius: 2px;
+    opacity: 1;
+    background-color: #5bd3d0;
+    padding: 8px 12px;
+}
+
+
+/* Contenedor principal */
+
+.main-abecedario {
+    display: block;
+}
+
+
+/* Bienvenido */
+
+.main-bienvenido {
+    display: inline-block;
+    width: 100%;
+    background: linear-gradient(#0e6fdf, rgb(176, 220, 238));
+}
+
+.main-bienvenido h1 {
+    font-size: 50px;
+}
+
+.main-bienvenido h1,
+h2 {
+    text-align: center;
+    color: #ffffff;
+}
+
+.main-bienvenido .galeria-general {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+.main-bienvenido .galeria-general .img-1 {
+    width: 500px;
+    height: 400px;
+}
+
+.main-bienvenido .galeria-general .img-1 img {
+    width: 100%;
+    height: 405px;
+    border-radius: 30px;
+    box-shadow: -5px 5px 5px 3px #0150aa;
+}
+
+.main-bienvenido .galeria-general .img-2 {
+    padding: 0 10px;
+}
+
+.main-bienvenido .galeria-general .img-3 {
+    width: 100%;
+    height: 20%;
+}
+
+.main-bienvenido .galeria-general .img-3 img {
+    border-radius: 30px;
+    width: 415px;
+    height: 200px;
+    box-shadow: -5px 2px 5px 3px #0150aa;
+}
+
+.main-bienvenido .galeria-general .img-4 {
+    display: flex;
+    width: 100%;
+    height: 50%;
+    text-decoration: none;
+}
+
+.main-bienvenido .galeria-general .img-4 img {
+    box-shadow: -5px 2px 5px 3px #0150aa;
+    width: 200px;
+    height: 200px;
+    border-radius: 30px;
+    margin: 5px;
+}
+
+
+/* Lista de los de los Temas */
+
+aside {
+    display: inline-block;
+    width: 20.5%;
+    text-align: center;
+    background-color: rgb(21 47 114);
+}
+
+aside a {
+    margin: 10px;
+    width: 250px;
+    height: 150px;
+    box-shadow: 3px 3px 15px #000;
+    border-radius: 10px;
+    background-color: rgba(210, 230, 248, 0.5);
+}
+
+aside div {
+    width: 100%;
+    padding: 25px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+aside div:hover {
+    background-color: rgb(38, 97, 176); 
+    transform: scale(1.05); 
+}
+
+aside a:hover {
+    text-decoration: none; 
+}
+
+aside div img {
+    width: 100px;
+}
+
+aside div h2 {
+    width: 100%;
+    color: white;
+}
+
+.aside-print img {
+    width: 35%;
+}
+
+
+/* Caja para añadir contenido */
+
+.main .Contenido {
+    width: 79.5% !important;
+    float: right !important;
+}
+
+.Contenido iframe {
+    width: 100%;
+    height: 1000px;
+    border: none;
+    overflow: hidden;
+}
+
+
+/* Mejoras en el Aside */
+
+aside .aside-juegos,
+aside .aside-videos,
+aside .aside-abecedario,
+aside .aside-numeros,
+aside .aside-colores,
+aside .aside-adivinanzas,
+aside .aside-print {
+    background-color: rgb(58, 117, 196);
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+}
+
+aside .aside-juegos a,
+aside .aside-videos a,
+aside .aside-abecedario a,
+aside .aside-numeros a,
+aside .aside-colores a,
+aside .aside-adivinanzas a,
+aside .aside-print a {
+    color: rgb(245, 245, 245);
+    font-weight: bold;
+    padding: 10px;
+}
+
+aside .aside-juegos h2,
+aside .aside-videos h2,
+aside .aside-abecedario h2,
+aside .aside-numeros h2,
+aside .aside-colores h2,
+aside .aside-adivinanzas h2,
+aside .aside-print h2 {
+    color: rgb(255, 255, 255);
+    margin-top: 10px;
+}
+
+aside .aside-juegos img,
+aside .aside-videos img,
+aside .aside-abecedario img,
+aside .aside-numeros img,
+aside .aside-colores img,
+aside .aside-adivinanzas img,
+aside .aside-print img {
+    margin: 10px;
+    max-width: 80px;
+    max-height: 80px;
+}
+
+
+/* Hover effects */
+
+aside .aside-juegos:hover,
+aside .aside-videos:hover,
+aside .aside-abecedario:hover,
+aside .aside-numeros:hover,
+aside .aside-colores:hover,
+aside .aside-adivinanzas:hover,
+aside .aside-print:hover {
+    background-color: rgb(38, 97, 176);
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
+}
+
+
+.contenedor-soporte{
+    font-family: 'Nunito', sans-serif;
+}
+.soporte {
+    background-color: #e7faff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.soporte h1 {
+    font-size: 32px;
+    color: #3aafa9;
+}
+
+.soporte h2 {
+    font-size: 28px;
+    margin-top: 20px;
+    color: #333;
+}
+
+.soporte p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.soporte ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.soporte ul li {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.faq {
+    margin-top: 20px;
+}
+
+.faq-item {
+    margin-bottom: 15px;
+}
+
+.faq-item h3 {
+    font-size: 22px;
+    color: #3aafa9;
+}
+
+.faq-item p {
+    font-size: 18px;
+    color: #555;
+}
+footer {
+    background-color: #3aafa9;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 40px;
+}
+
+footer p {
+    font-size: 16px;
+    margin: 0;
+}
+/*  Hacemos responsive la cabecera. */
+
+@media all and (max-width: 800px) {
+    .cabecera-barra .cabecera-barra-2 nav {
+        font-size: 14px;
+    }
+}
+
+@media all and (max-width: 600px) {
+    .cabecera-barra .cabecera-barra-1 {
+        padding: 20px 0;
+    }
+    .cabecera-barra .cabecera-barra-1 h1 {
+        float: none;
+        margin: -8px 0 2px;
+        text-align: center;
+        font-size: 24px;
+        line-height: 1;
+    }
+    .cabecera-barra .cabecera-barra-1 nav {
+        margin: 0;
+        float: none;
+        font-size: 13px;
+    }
+    .cabecera-barra .cabecera-barra-1 nav a.activo {
+        padding: 5px 8px;
+    }
+}

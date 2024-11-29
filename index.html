@@ -1,0 +1,166 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/estilo.css">
+    <link href="https://fonts.googleapis.com/css?family=Andada&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Comic+Neue&family=Baloo&family=Nunito&family=Chewy&family=Schoolbell&family=Raleway+Dots&display=swap" rel="stylesheet">
+
+    <title>Memoria Inicial</title>
+</head>
+
+<body>
+    <div class="contenedor">
+        <header class="cabecera-barra">
+            <img src="image/Logo-MemoriaInicial.png" class="logo" alt="logo">
+            <h1><a href="index.html">Memoria<span>Inicial</span></a></h1>
+            <nav>
+                <ul>
+                    <li><a href="matematica.html" target="paginas" data-src="matematica.html">Números</a></li>
+                    <li><a href="juegos.html" target="paginas" data-src="juegos.html">Juegos</a></li>
+                    <li><a href="videos.html" target="paginas" data-src="videos.html">Videos</a></li>
+                    <li><a href="adivinanzas.html" target="paginas" data-src="adivinanzas.html">Adivinanzas</a></li>
+                    <li><a href="soporte.html">Soporte</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section class="main">
+            <div class="main-bienvenido">
+                <h1>Bienvenido a Educación Inicial</h1>
+                <h2>Diviértete Aprendiendo</h2>
+                <div class="galeria-general">
+                    <a href="juegos.html" target="paginas" data-src="juegos.html" class="img-1">
+                        <img src="image/juegos.jpg" alt="">
+                    </a>
+                    <div class="img-2">
+                        <a href="lenguaje.html" target="paginas" data-src="lenguaje.html" class="img-3">
+                            <img src="image/abecedario.jpg" alt="">
+                        </a>
+                        <div class="img-4">
+                            <a href="matematica.html" target="paginas" data-src="matematica.html" class="img-3">
+                                <img src="image/numero.jpg" alt="numero">
+                            </a>
+                            <a href="videos.html" target="paginas" data-src="videos.html" class="img-4">
+                                <img src="image/video.jpg" alt="video">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="contenido" class="Contenido">
+                <iframe id="iframe-contenido" name="paginas" src="" frameborder="0"></iframe>
+            </div>
+        </section>
+        <aside>
+            <a href="juegos.html" target="paginas" data-src="juegos.html">
+                <div class="aside-juegos">
+                    <img src="image/logo-video.png" alt="">
+                    <h2>Juegos</h2>
+                </div>
+            </a>
+        
+            <a href="videos.html" target="paginas" data-src="videos.html">
+                <div class="aside-videos">
+                    <img src="image/logo-video.png" alt="">
+                    <h2>Videos</h2>
+                </div>
+            </a>
+        
+            <a href="lenguaje.html" target="paginas" data-src="lenguaje.html">
+                <div class="aside-abecedario">
+                    <img src="image/logo-video.png" alt="">
+                    <h2>Abecedario</h2>
+                </div>
+            </a>
+        
+            <a href="matematica.html" target="paginas" data-src="matematica.html">
+                <div class="aside-numeros">
+                    <img src="image/logo-video.png" alt="">
+                    <h2>Números</h2>
+                </div>
+            </a>
+        
+            <a href="colores.html" target="paginas" data-src="colores.html">
+                <div class="aside-colores">
+                    <img src="image/logo-video.png" alt="">
+                    <h2>Colores</h2>
+                </div>
+            </a>
+        
+            <a href="adivinanzas.html" target="paginas" data-src="adivinanzas.html">
+                <div class="aside-adivinanzas">
+                    <img src="image/logo-video.png" alt="">
+                    <h2>Adivinanzas</h2>
+                </div>
+            </a>
+        </aside>
+        
+    </div>
+    <footer>
+        <p>&copy; 2024 Memoria Inicial - Todos los derechos reservados</p>
+    </footer>
+    <script>
+        window.onload = function() {
+            const primerEnlace = document.querySelector('a[data-src="soporte.html"]');
+            
+            if (primerEnlace) {
+                primerEnlace.click();
+            }
+        };
+
+        // Función para cargar contenido HTML de un archivo en la sección seleccionada
+        function cargarContenidoHTML(seccionId, archivo) {
+            fetch(archivo)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.text(); // Convierte la respuesta a texto (HTML)
+                })
+                .then(data => {
+                    const seccionSeleccionada = document.getElementById(seccionId);
+                    seccionSeleccionada.innerHTML = data; // Inserta el contenido en la sección
+                })
+                .catch(error => console.error('Error al cargar el contenido HTML:', error));
+        }
+
+        // Función para mostrar la sección seleccionada y cargar su contenido
+        function mostrarSeccion(seccionId, archivo) {
+            // Oculta todas las secciones
+            const secciones = document.querySelectorAll('.seccion');
+            secciones.forEach(seccion => {
+                seccion.classList.remove('visible');
+            });
+
+            // Muestra la sección seleccionada
+            const seccionSeleccionada = document.getElementById(seccionId);
+            seccionSeleccionada.classList.add('visible');
+
+            // ​‌‍‌⁡⁣⁢⁣Cargar el contenido HTML siempre⁡​
+            cargarContenidoHTML(seccionId, archivo);
+        }
+        
+        //manejar los clics y desplazarse automáticamente al div
+        
+        const enlaces = document.querySelectorAll('a[data-src]');
+        const iframe = document.getElementById('iframe-contenido');
+
+        enlaces.forEach(enlace => {
+            enlace.addEventListener('click', event => {
+                event.preventDefault(); 
+                const src = enlace.getAttribute('data-src'); 
+                if (src) {
+                    iframe.src = src;
+
+                    document.getElementById('contenido').scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
